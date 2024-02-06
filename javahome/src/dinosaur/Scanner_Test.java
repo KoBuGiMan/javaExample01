@@ -26,7 +26,7 @@ public class Scanner_Test {
 		
 		if(mon == JAN||mon == MAR||mon==MAY||mon==JUL||mon==OCT||mon==DEC) {
 			numDays = 31;
-		}else if(mon == APR||mon == JUN||mon==SEP||mon==NOV) {
+		}else if(mon == APR||mon == JUN||mon==SEP||mon==NOV || mon == AUG) {
 			numDays = 30;
 		}else if(mon == FEB) {
 			System.out.println("Enter year -->");
@@ -44,6 +44,8 @@ public class Scanner_Test {
 		if(numDays > 0) {
 			System.out.println("Number of day is " +numDays);
 		}
-
+		
+		sc.close();
 	}
+	
 }
