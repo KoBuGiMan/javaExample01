@@ -45,6 +45,9 @@ public class Scanner_Test {
 			System.out.println("Number of day is " +numDays);
 		}
 		
+		
+		
+		
 		sc.close(); 
 	}
 	
