@@ -94,7 +94,7 @@ public class NewDino {
 				// for문을 돌리며 if문의 조건에 부합하는 배열을 찾는다.
 				for (int i = 0; i < dinoList.length; i++) {
 					// 우선 "종"이 맞는지 확인한다.
-					if (dinoList[i][0].equals(getSpecies())) {
+					if (dinoList[i][0].equals (getSpecies())) {
 						// 그 다음 이름이 맞는지 확인한다
 						// 만약 "종"은 맞는데 이름이 다를때 continue문을 이용해 해당 i값을 건너뛴다.
 						if (dinoList[i][2].equals(getName())) {
