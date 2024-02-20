@@ -18,6 +18,7 @@ class Test extends ProtectTest{
 
 
 
+
 public class ProtectTest2 {
 
 	public static void main(String[] args) {
