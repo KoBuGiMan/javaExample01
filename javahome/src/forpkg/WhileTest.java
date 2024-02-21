@@ -26,5 +26,6 @@ public class WhileTest {
 		System.out.println("Sum of Number: "+sum);
 		
 	}
+
 	
 }
