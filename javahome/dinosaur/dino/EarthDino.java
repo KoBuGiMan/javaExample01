@@ -22,5 +22,4 @@ public class EarthDino extends Def implements Rule{
 		this.earthDinoList = earthDinoList;
 	}
 	
-
 }

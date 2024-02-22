@@ -16,6 +16,7 @@ public class Def2 implements Rule2{
 	private String age;
 	private String phone;
 	private String work;
+	
 	public Def2(){
 
 	}

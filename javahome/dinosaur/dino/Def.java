@@ -10,6 +10,8 @@ interface Rule {
 
 }
 
+
+
 public class Def implements Rule {
 	Scanner sc = new Scanner(System.in);
 	private String species;
@@ -49,14 +51,15 @@ public class Def implements Rule {
 		this.length = length;
 	}
 
+	
 	public String[] setAll() {
-		System.out.println("종을 입력");
+		System.out.println("공룡의 종을 입력해주세요:");
 		setSpecies(sc.next());
-		System.out.println("이름을 입력");
+		System.out.println("공룡의 이름을 입력해주세요:");
 		setName(sc.next());
-		System.out.println("식성을 입력");
+		System.out.println("공룡의 식성을 입력해주세요 ex) 초식,육식,잡식");
 		setEat(sc.next());
-		System.out.println("크기를 입력");
+		System.out.println("공룡의 크기를 입력해주세요 ex) 소형,중형,대형");
 		setLength(sc.next());
 		String[] arr2 = new String[] { getSpecies(), getName(), getEat(), getLength() };
 		return arr2;
