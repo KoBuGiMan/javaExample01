@@ -10,7 +10,7 @@ class SkyDino extends Def implements Rule {
 	private String[][] skyDinoList;
 
 	public SkyDino() {
-		skyDinoList = new String[0][];
+		skyDinoList = new String[][] {{"프테라노돈","펄럭이","잡식","중형"},{"케찰코아틀루스","짱짱이","육식","대형"},{"스카포그나투스","총총이","초식","소형"}};
 	}
 
 	public String[][] getSkyDinoList() {

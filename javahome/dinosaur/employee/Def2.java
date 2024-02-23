@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 interface Rule2{
-	public String[][]setEmList(String[][] arr);
+	public String[][]setEmList(String[][] arr,String[] arr2);
 	public String[]setAll();
 }
 
@@ -73,15 +73,15 @@ public class Def2 implements Rule2{
 
 
 	@Override
-	public String[][] setEmList(String[][] arr) {
+	public String[][] setEmList(String[][] arr, String[] arr2) {
 		String[][] newArr = Arrays.copyOf(arr, arr.length + 1);
 		try {
 			for (int i = 0; i < arr.length; i++) {
 				newArr[i] = arr[i];
 			}
-			newArr[arr.length] = setAll();
+			newArr[arr.length] = arr2;
 		} catch (Exception e) {
-			newArr[0] = setAll();
+			newArr[0] = arr2;
 		}
 
 		return newArr;
@@ -103,6 +103,7 @@ public class Def2 implements Rule2{
 		String[] arr2 = new String[] { getJob(), getName(), getAge(), getPhone(),getWork() };
 		return arr2;
 	}
+	
 
 
 

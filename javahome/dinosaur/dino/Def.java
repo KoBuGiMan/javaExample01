@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 interface Rule {
-	public String[][] setDinoList(String[][] arr);
+	public String[][] setDinoList(String[][] arr,String[] arr2);
 
 	String[] setAll();
 
@@ -54,6 +54,7 @@ public class Def implements Rule {
 	
 	public String[] setAll() {
 		System.out.println("공룡의 종을 입력해주세요:");
+		
 		setSpecies(sc.next());
 		System.out.println("공룡의 이름을 입력해주세요:");
 		setName(sc.next());
@@ -65,19 +66,20 @@ public class Def implements Rule {
 		return arr2;
 	}
 
-	public String[][] setDinoList(String[][] arr) {
+	public String[][] setDinoList(String[][] arr, String[] arr2) {
 		String[][] newArr = Arrays.copyOf(arr, arr.length + 1);
 		try {
 			for (int i = 0; i < arr.length; i++) {
 				newArr[i] = arr[i];
 			}
-			newArr[arr.length] = setAll();
+			newArr[arr.length] = arr2;
 		} catch (Exception e) {
-			newArr[0] = setAll();
+			newArr[0] = arr2;
 		}
 
 		return newArr;
 
 	}
+	
 
 }
