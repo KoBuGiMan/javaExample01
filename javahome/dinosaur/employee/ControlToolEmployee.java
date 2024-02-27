@@ -6,10 +6,10 @@ import java.util.Scanner;
 public class ControlToolEmployee {
 	Scanner sc = new Scanner(System.in);
 	Cleanner cleanner = new Cleanner();
-	Gard gard = new Gard();
+	GJob gard = new GJob();
 	OfficeJob officeJob = new OfficeJob();
 	SafetyGard safetyGard = new SafetyGard();
-	ZooKeeper zooKeeper = new ZooKeeper();
+	ZooKeep2 zooKeeper = new ZooKeep2();
 	Def2 def2 = new Def2();
 
 	private String[][] allEmployeeList;

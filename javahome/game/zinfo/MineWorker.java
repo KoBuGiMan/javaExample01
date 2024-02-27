@@ -49,7 +49,7 @@ public class MineWorker extends DefaultAction{
 	public double minePlusAttack() {
 		double sum = 0;
 		for(int i=0;i<getMineNum();i++) {
-			double random = (Math.random()*6)*0.1;
+			double random = Math.round(Math.random()*6)/10.0;
 			sum += random;
 		}
 		

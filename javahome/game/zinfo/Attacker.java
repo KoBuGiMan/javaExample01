@@ -5,8 +5,8 @@ public class Attacker extends DefaultAction {
 	private int attackerNum;
 	private double attackerCost;
 	private int attackerAttack;
-	private int attackRan;
-	private double costRan;
+//	private int attackRan;
+//	private double costRan;
 	private int attackerPrice;
 
 	public Attacker() {
@@ -15,8 +15,8 @@ public class Attacker extends DefaultAction {
 		attackerNum = 0;
 		attackerAttack = 2;
 		attackerCost = 0.5;
-		attackRan = (int) (Math.floor(Math.random() * 2) + 1);
-		costRan = (Math.floor(Math.random() * 1) + 1) * 0.5;
+//		attackRan = (int) (Math.floor(Math.random() * 2) + 1);
+//		costRan = (Math.floor(Math.random() * 1) + 1) * 0.5;
 	}
 
 	// 인구수증가
@@ -29,7 +29,7 @@ public class Attacker extends DefaultAction {
 	public double plusAttackerCost() {
 		double sum = 0;
 		for (int i = 0; i < getAttackerNum(); i++) {
-			double random = ((int) (Math.random()*6))*0.1;
+			double random =  Math.round((Math.random()*6)*10/10.0);
 			sum += random;
 		}
 		return sum;
@@ -39,7 +39,7 @@ public class Attacker extends DefaultAction {
 	public int attackerPlusAttack() {
 		int sum = 0;
 		for (int i = 0; i < getAttackerNum(); i++) {
-			int random = (int) (Math.random()*3);
+			int random = ((int) (Math.random()*3));
 			sum += random;
 		}
 		return sum;
@@ -77,20 +77,20 @@ public class Attacker extends DefaultAction {
 		this.attackerAttack = attackerAttack;
 	}
 
-	public int getAttackRan() {
-		return attackRan;
-	}
-
-	public void setAttackRan(int attackRan) {
-		this.attackRan = attackRan;
-	}
-
-	public double getCostRan() {
-		return costRan;
-	}
-
-	public void setCostRan(double costRan) {
-		this.costRan = costRan;
-	}
+//	public int getAttackRan() {
+//		return attackRan;
+//	}
+//
+//	public void setAttackRan(int attackRan) {
+//		this.attackRan = attackRan;
+//	}
+//
+//	public double getCostRan() {
+//		return costRan;
+//	}
+//
+//	public void setCostRan(double costRan) {
+//		this.costRan = costRan;
+//	}
 
 }

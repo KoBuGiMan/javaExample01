@@ -2,11 +2,12 @@ package zinfo;
 
 public class NomalUnit extends DefaultAction{
 
-	private int nomalRan;
-	private int nomalPlusRan;
+//	private int nomalRan;
+//	private int nomalPlusRan;
 	private int nomalNum;
-	private int nomalCost;
+	private double nomalCost;
 	private int nomalPrice;
+	private double nomalAttack;
 
 	
 	public NomalUnit() {
@@ -15,14 +16,17 @@ public class NomalUnit extends DefaultAction{
 		// 일밤유닛 인구수
 		nomalNum = 0;
 		// 일반유닛의 기본적인 코스트 수확량
-		nomalPlusRan = 1;
-		// 기본 공격력
+//		nomalPlusRan = 1;
+
 		nomalCost = 1;
+		
+		nomalAttack = 1;
 		//랜덤값
-		nomalRan = (int) (Math.floor(Math.random()*1)+1); 
+//		nomalRan = (int) (Math.floor(Math.random()*1)+1); 
 		
 	}
 
+	
 	// 인구수증가
 	public void nomalNumUp() {
 		setNomalNum(getNomalNum()+1);
@@ -32,7 +36,7 @@ public class NomalUnit extends DefaultAction{
 	public double plusNomalAttack(){
 		int sum = 0;
 		for(int i=0;i<getNomalNum();i++) {
-			double random = ((int) (Math.random()*11))*0.1;
+			double random =  Math.round((Math.random()*11)/10.0);
 			sum += random;
 		}
 		return sum;
@@ -42,7 +46,7 @@ public class NomalUnit extends DefaultAction{
 	public double plusNomalCost() {
 		double sum = 0;
 		for(int i=0;i<nomalNum;i++) {
-			double random = ((int) (Math.random()*11))*0.1;
+			double random =  Math.round((Math.random()*11)/10.0);
 			sum += random;
 		}
 		return sum;
@@ -55,30 +59,37 @@ public class NomalUnit extends DefaultAction{
 	public void setNomalPrice(int nomalPrice) {
 		this.nomalPrice = nomalPrice;
 	}
-	public int getNomalRan() {
-		return nomalRan;
-	}
-	public void setNomalRan(int nomalRan) {
-		this.nomalRan = nomalRan;
-	}
-	public int getNomalPlusRan() {
-		return nomalPlusRan;
-	}
-	public void setNomalPlusRan(int nomalPlusRan) {
-		this.nomalPlusRan = nomalPlusRan;
-	}
+//	public int getNomalRan() {
+//		return nomalRan;
+//	}
+//	public void setNomalRan(int nomalRan) {
+//		this.nomalRan = nomalRan;
+//	}
+//	public int getNomalPlusRan() {
+//		return nomalPlusRan;
+//	}
+//	public void setNomalPlusRan(int nomalPlusRan) {
+//		this.nomalPlusRan = nomalPlusRan;
+//	}
 	public int getNomalNum() {
 		return nomalNum;
 	}
 	public void setNomalNum(int nomalNum) {
 		this.nomalNum = nomalNum;
 	}
-	public int getNomalCost() {
+	public double getNomalCost() {
 		return nomalCost;
 	}
-	public void setNomalCost(int nomalCost) {
+	public void setNomalCost(double nomalCost) {
 		this.nomalCost = nomalCost;
 	}
 
-	
+	public double getNomalAttack() {
+		return nomalAttack;
+	}
+
+	public void setNomalAttack(double nomalAttack) {
+		this.nomalAttack = nomalAttack;
+	}
+
 }

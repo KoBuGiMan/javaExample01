@@ -8,5 +8,6 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="dinosaur"/>
 	<classpathentry kind="src" path="game"/>
+	<classpathentry kind="src" path="dinosaur2"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
