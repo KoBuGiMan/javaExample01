@@ -1,4 +1,4 @@
-package main;
+package appMain;
 
 import java.util.Scanner;
 
@@ -26,12 +26,12 @@ public class App {
 				dinoC.addDino();
 			case 2:
 				dinoC.removeDino();
+			case 3:
+				dinoC.editDino();
 			case 4:
 				empC.addEmployee();
-			case 5:
+			case 5: 
 				empC.removeEmp();
-			case 3: 
-				dinoC.editDino();
 			case 6: 
 				empC.editEmp();
 			default:

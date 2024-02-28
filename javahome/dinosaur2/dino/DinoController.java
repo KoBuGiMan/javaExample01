@@ -12,7 +12,7 @@ public class DinoController {
 	public DinoController() {
 		dinoList = new ArrayList<>();
 	}
-
+	
 	public void addDino() {
 		int yesNo = 0;
 		int count = 0;
