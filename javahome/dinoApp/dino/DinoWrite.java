@@ -6,130 +6,167 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
-public class DinoWrite {
-	Scanner sc = new Scanner(System.in);
-	private String species;
-	private String name;
-	private String eat;
-	private int weight;
+public abstract class DinoWrite {
 
 	public DinoWrite() {
 
 	}
+	Scanner sc = new Scanner(System.in);
 
 	public void writeSystem() {
-
 		try (FileWriter fw = new FileWriter("D:\\javatest\\javahome\\dinoList.txt", true);
-				BufferedReader br2 = new BufferedReader(new InputStreamReader(System.in));
+				BufferedReader br2 = new BufferedReader(new FileReader(new File("D:\\javatest\\javahome\\dinoList.txt")));
 				BufferedWriter bw = new BufferedWriter(fw);) {
 
 			String line;
 
-			System.out.println("종:");
 			while ((line = br2.readLine()) != null) {
-				if (line.equals("esc")) {
-					break;
-				}
-				setSpecies(line);
+
+				System.out.println("종:");
+				line = sc.next();
 				bw.write(line + " ");
 
 				System.out.println("이름:");
-				line = br2.readLine();
-				setName(line);
+				line = sc.next();
 				bw.write(line + " ");
 
 				System.out.println("식성:");
-				line = br2.readLine();
-				setEat(line);
+				line = sc.next();
 				bw.write(line + " ");
 
 				System.out.println("몸무게");
-				line = br2.readLine();
-				setWeight(weight);
+				line = sc.next();
 				bw.write(line + " ");
 
 				bw.newLine();
-
-				System.out.println("종:");
+				
+				System.out.println("다시?");
+				int a = sc.nextInt();
+				if(a == 1) {
+					break;
+				}
+				
+				System.out.println("종");
 
 			}
+
 			File file = new File("D:\\javatest\\javahome\\dinoList.txt");
 			BufferedReader bfr = new BufferedReader(new FileReader(file));
 			String out = null;
 			while ((out = bfr.readLine()) != null) {
 				System.out.println(out);
 			}
+			
 		} catch (IOException e) {
 			System.out.println("error:" + e.getMessage());
 		}
 	}
 
 	public void findWord() {
-		
-		String file = "D:\\javatest\\javahome\\dinoList.txt";
-		try (BufferedReader br = new BufferedReader(new FileReader(new File("D:\\javatest\\javahome\\dinoList.txt")));
-				FileWriter fw = new FileWriter(file,true);
-				BufferedWriter bw = new BufferedWriter(fw);)
-				 {
-			System.out.println("공룡종:");
+
+		try {
+			File file = new File("D:\\javatest\\javahome\\dinoList.txt");
+			BufferedReader br = new BufferedReader(new FileReader(file));
+			if (file.exists() == false) {
+				System.out.println("파일이 없습니다.");
+			}
+
+			System.out.println("종:");
 			String spe = sc.next();
-			System.out.println("공룡이름:");
+			System.out.println("이름:");
 			String name = sc.next();
-			
-			while(true) {
-				String line = br.readLine();
-				if(line == null) {
-					break;
+
+			StringBuilder build = new StringBuilder();
+			String line;
+
+			while ((line = br.readLine()) != null) {
+				String[] arr = line.split(" ");
+				String species = arr[0];
+				String nameFix = arr[1];
+				if (spe.equals(species) && name.equals(nameFix)) {
+					System.out.println("수정 종:");
+					String spe2 = sc.next();
+					System.out.println("수정 이름:");
+					String name2 = sc.next();
+					System.out.println("수정 식성");
+					String eat2 = sc.next();
+					System.out.println("수정 몸무게:");
+					int weight2 = sc.nextInt();
+
+					line = spe2 + " " + name2 + " " + eat2 + " " + weight2;
+				}
+				build.append(line).append("\n");
+			}
+
+			PrintWriter pw = new PrintWriter(new FileWriter(file));
+			pw.print(build.toString());
+
+			System.out.println("완료");
+		} catch (IOException e) {
+			System.out.println("error: " + e.getMessage());
+		}
+
+	}
+
+	public void removeDino() {
+
+		try {
+			File file = new File("D:\\javatest\\javahome\\dinoList.txt");
+			BufferedReader br = new BufferedReader(new FileReader(file));
+
+			if (file.exists() == false) {
+				System.out.println("파일이 없습니다.");
+			}
+
+			System.out.println("삭제 종:");
+			String dSpe = sc.next();
+			System.out.println("삭제 이름:");
+			String dName = sc.next();
+			StringBuilder sb = new StringBuilder();
+			String line;
+
+			while ((line = br.readLine()) != null) {
+				String[] arr = line.split(" ");
+				String specise = arr[0];
+				String name = arr[1];
+				if (!specise.equals(dSpe) || !name.equals(dName)) {
+					
+					sb.append(line).append("\n");
 				}
 				
-				String newLine = line.replace(spe, name ); 
-				
 			}
-			
-			
+			br.close();
+			PrintWriter pw = new PrintWriter(new FileWriter(file));
+			pw.print(sb.toString());
+			pw.close();
 		} catch (IOException e) {
-			System.out.println("error:" + e.getMessage());
+			System.out.println("error: " + e.getMessage());
 		}
-		
+
 	}
 
 	public static void main(String[] args) {
-		DinoWrite dw = new DinoWrite();
-		dw.writeSystem();
+		DinosaurIllException dw = new DinosaurIllException() ;
+		Scanner sc = new Scanner(System.in);
+		int a = 1;
+		do{
+			System.out.println("입력");
+			int d = sc.nextInt(); 
+			if(d == 1) {
+				dw.writeSystem();				
+			}else if(d == 2) {
+				dw.removeDino();
+				
+			}else if(d == 3) {
+				dw.healthCheck();
+			}
+			// dw.findWord();
+			
+		}while(a == 1);
 	}
 
-	public String getSpecies() {
-		return species;
-	}
 
-	public void setSpecies(String species) {
-		this.species = species;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getEat() {
-		return eat;
-	}
-
-	public void setEat(String eat) {
-		this.eat = eat;
-	}
-
-	public int getWeight() {
-		return weight;
-	}
-
-	public void setWeight(int weight) {
-		this.weight = weight;
-	}
 }
