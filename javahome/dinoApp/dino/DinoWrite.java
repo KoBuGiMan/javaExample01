@@ -59,7 +59,7 @@ public abstract class DinoWrite {
 			while ((out = bfr.readLine()) != null) {
 				System.out.println(out);
 			}
-			
+			bfr.close();
 		} catch (IOException e) {
 			System.out.println("error:" + e.getMessage());
 		}
@@ -105,6 +105,8 @@ public abstract class DinoWrite {
 			pw.print(build.toString());
 
 			System.out.println("완료");
+			pw.close();
+			br.close();
 		} catch (IOException e) {
 			System.out.println("error: " + e.getMessage());
 		}
@@ -163,9 +165,9 @@ public abstract class DinoWrite {
 			}else if(d == 3) {
 				dw.healthCheck();
 			}
-			// dw.findWord();
 			
 		}while(a == 1);
+		sc.close();
 	}
 
 
