@@ -51,7 +51,7 @@ public class MyFarm {
 //		String name = f.getName();
 //		int numAnimal = f.getNumAnimal();
 //		List<String> ani = f.getAnimal();
-		f.get.add("cat");
+//		f.get.add("cat");
 		System.out.println(f.getName() +" "+ f.getNumAnimal() +" "+ f.getAnimal());
 		
 	}

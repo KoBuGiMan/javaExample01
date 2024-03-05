@@ -9,6 +9,8 @@ public abstract class Dinosaur {
 	private String species;
 	private String name;
 	private String health;
+	private String dinoQuality;
+
 	private List<List<String>> dinoList;
 
 	public Dinosaur() {
@@ -17,24 +19,34 @@ public abstract class Dinosaur {
 
 	public void addDinosaur() {
 		Scanner sc = new Scanner(System.in);
-		List<String> harfList = new ArrayList<>();
-		System.out.print("공룡의 종을 입력해주세요: ");
-		setSpecies(sc.next());
-		harfList.add(getSpecies());
-		System.out.print("공룡의 이름을 입력헤주세요: ");
-		setName(getName());
-		harfList.add(getName());
-		System.out.print("공룡의 건강상태를 입력해주세요: ");
-		setHealth(sc.next());
-		harfList.add(getHealth());
+		int ans = 0;
 
-		setDinoList(getDinoList(), harfList);
-		
-		for (int i = 0; i < getDinoList().size(); i++) {
-			System.out.println(getDinoList().get(i));
-		}
-		
-		sc.close();
+		do {
+			List<String> harfList = new ArrayList<>();
+			System.out.print("공룡의 종을 입력해주세요: ");
+			setSpecies(sc.next());
+			System.out.print("공룡의 이름을 입력헤주세요: ");
+			setName(sc.next());
+			System.out.print("공룡의 건강상태를 입력해주세요(건강/주의/허약): ");
+			setHealth(sc.next());
+			sc.nextLine();
+			System.out.print("공룡의 특징을 입력해주세요: ");
+			setDinoQuality(sc.nextLine());
+
+			harfList.add(getSpecies());
+			harfList.add(getName());
+			harfList.add(getHealth());
+			harfList.add(getDinoQuality());
+			setDinoList(getDinoList(), harfList);
+
+			for (int i = 0; i < getDinoList().size(); i++) {
+				System.out.println(getDinoList().get(i));
+			}
+			System.out.println(getDinoList().size());
+			System.out.println("공룡을 추가로 등록하시겠습니까? (1.yes/2.no)");
+			ans = sc.nextInt();
+		} while (ans == 1);
+
 	}
 
 	public void removeDinosaur() {
@@ -62,6 +74,10 @@ public abstract class Dinosaur {
 		for (int i = 0; i < getDinoList().size(); i++) {
 			System.out.println(getDinoList().get(i));
 		}
+
+	}
+
+	public void dinoInfoSet() {
 
 	}
 
@@ -100,6 +116,14 @@ public abstract class Dinosaur {
 
 	public void setHealth(String health) {
 		this.health = health;
+	}
+
+	public String getDinoQuality() {
+		return dinoQuality;
+	}
+
+	public void setDinoQuality(String dinoQuality) {
+		this.dinoQuality = dinoQuality;
 	}
 
 }
